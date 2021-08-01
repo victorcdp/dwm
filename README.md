@@ -6,6 +6,7 @@ This build of dwm does not block color emoji in the status/info bar, so you must
 
 ## Patches and features
 
+- Forked from Luke Smith's dwm build
 - Reads xresources colors/variables (i.e. works with `pywal`, etc.).
 - scratchpad: Accessible with mod+shift+enter.
 - New layouts: bstack, fibonacci, deck, centered master and more. All bound to keys `super+(shift+)t/y/u/i`.
