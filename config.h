@@ -255,9 +255,9 @@ static Key keys[] = {
 	{ MODKEY,			XK_space,	zoom,		{0} },
 	{ MODKEY|ShiftMask,		XK_space,	togglefloating,	{0} },
 
-	{ 0,				XK_Print,	spawn,		SHCMD("maim $HOME/pictures/screenshots/$(date '+%y%m%d-%H%M-%S').png") },
-	{ ShiftMask,			XK_Print,	spawn,		SHCMD("maim -s $HOME/pictures/screenshots/$(date '+%y%m%d-%H%M-%S').png") },
-	{ MODKEY,			XK_Print,	spawn,		SHCMD("screenshot") },
+	{ 0,				XK_Print,	spawn,		SHCMD("maim -m 8 $HOME/pictures/screenshots/$(date '+%y%m%d-%H%M-%S').png") },
+	{ ShiftMask,			XK_Print,	spawn,		SHCMD("maim -m 8 -s $HOME/pictures/screenshots/$(date '+%y%m%d-%H%M-%S').png") },
+	{ MODKEY,			XK_Print,	spawn,		SHCMD("maim -m 8 -i $(xdotool getactivewindow) ~/pictures/screenshots/$(date '+%y%m%d-%H%M-%S').png") },
 	{ MODKEY|ShiftMask,		XK_Print,	spawn,		SHCMD("dmenurecord kill") },
 	{ MODKEY,			XK_Delete,	spawn,		SHCMD("dmenurecord kill") },
 	{ MODKEY,			XK_Scroll_Lock,	spawn,		SHCMD("killall screenkey || screenkey &") },
