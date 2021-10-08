@@ -23,12 +23,12 @@ dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
 
 clean:
-	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz *.orig *.rej
+	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz
 
 dist: clean
 	mkdir -p dwm-${VERSION}
-	cp -R Makefile README config.mk\
-		dwm.1 drw.h util.h ${SRC} transient.c dwm-${VERSION}
+	cp -R LICENSE Makefile README config.h config.mk\
+		dwm.1 drw.h util.h ${SRC} transient.c dwm.desktop dwm-${VERSION}
 	tar -cf dwm-${VERSION}.tar dwm-${VERSION}
 	gzip dwm-${VERSION}.tar
 	rm -rf dwm-${VERSION}
@@ -40,10 +40,12 @@ install: all
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
-	mkdir -p ${DESTDIR}${PREFIX}/share/dwm
+	mkdir -p /usr/share/xsessions
+	cp -f dwm.desktop /usr/share/xsessions
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
-		${DESTDIR}${MANPREFIX}/man1/dwm.1
+		${DESTDIR}${MANPREFIX}/man1/dwm.1\
+		/usr/share/xsessions/dwm.desktop
 
 .PHONY: all options clean dist install uninstall
