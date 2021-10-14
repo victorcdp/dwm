@@ -154,6 +154,10 @@ ResourcePref resources[]        = {
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+#define STACKKEYS(MOD,ACTION) \
+	{ MOD, XK_j,     ACTION##stack, {.i = INC(+1) } }, \
+	{ MOD, XK_k,     ACTION##stack, {.i = INC(-1) } }, \
+	{ MOD, XK_grave, ACTION##stack, {.i = PREVSEL } }, 
 
 /* --------------- commands -------------- */
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
@@ -202,8 +206,10 @@ static Key keys[]               = {
 	{ MODKEY|ShiftMask,             XK_c,       killclient,     {0} },
 	{ MODKEY,                       XK_e,       focusurgent,    {0} },
 	{ MODKEY,                       XK_s,       togglesticky,   {0} },
-	{ MODKEY,                       XK_j,       focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,       focusstack,     {.i = -1 } },
+/*	{ MODKEY,                       XK_j,       focusstack,     {.i = +1 } }, */
+/*	{ MODKEY,                       XK_k,       focusstack,     {.i = -1 } }, */
+	STACKKEYS(MODKEY,                          focus)
+	STACKKEYS(MODKEY|ShiftMask,                push)
 	{ MODKEY|ShiftMask,             XK_j,       rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,       rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_m,       incnmaster,     {.i = +1 } },
