@@ -8,6 +8,7 @@ static int swallowfloating      = 0;        /* 1 means swallow floating windows 
 static const float mfact        = 0.55;     /* factor of master area size [0.05..0.95] */
 static const int nmaster        = 1;        /* number of clients in master area */
 static const int resizehints    = 0;        /* 1 means respect size hints in tiled resizals */
+static const int focusonwheel   = 0;		/* focus window in mouse wheel scroll */
 
 /* ----------------- gaps ---------------- */
 static          int smartgaps   = 0;        /* 1 means no outer gap when there is only one window */
@@ -33,7 +34,7 @@ static char *colors[][3]        = {
 };
 
 /* ----------------- tags ---------------- */
-static const char *tags[]       = { "1 ", "2 ", "3 ", "4 ", "5 " };
+static const char *tags[]       = { "1", "2", "3", "4", "5" };
 
 /* --------------- patches --------------- */
 #define FORCE_VSPLIT            1           /* nrowgrid layout: force two clients to always split vertically */
